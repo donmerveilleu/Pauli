@@ -14,11 +14,11 @@ position = Vector2(500, 300)
 position = Vector2(500, 500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(28.5, 0)
+position = Vector2(50, 0)
 shape = SubResource("RectangleShape2D_floor")
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -665.0
-offset_top = -25.0
-offset_right = 714.0
-offset_bottom = 25.0
+offset_left = -638.0
+offset_top = -27.0
+offset_right = 741.0
+offset_bottom = 23.0
