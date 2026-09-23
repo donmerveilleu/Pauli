@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8m3v7n2x50a0"]
+
+[ext_resource type="PackedScene" uid="uid://bjk1m7n2c3d4e" path="res://scenes/Player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scenes/Main.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://dw71ywhty0i37" path="res://characters/npcs/vendor/Vendor.tscn" id="3_vendor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(2400, 50)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("2_script")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(1200, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -1200.0
+offset_top = -25.0
+offset_right = 1200.0
+offset_bottom = 25.0
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(176, 357)
+
+[node name="Vendor" parent="." instance=ExtResource("3_vendor")]
+position = Vector2(507, 339)

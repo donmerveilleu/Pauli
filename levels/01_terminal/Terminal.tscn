@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckbnnbisjt8d"]
+
+[ext_resource type="Script" path="res://levels/01_terminal/Terminal.gd" id="1"]
+
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1")
