@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ce7wnaaew23nk"]
+
+[ext_resource type="Texture2D" uid="uid://dxyomyabtci0h" path="res://MainMenuAssets/LightFlicker.png" id="1_e2xy7"]
+[ext_resource type="Script" uid="uid://cfk22mtaci4mg" path="res://main_menu.gd" id="1_fimr5"]
+[ext_resource type="Texture2D" uid="uid://dpw5p74vy4a1v" path="res://MainMenuAssets/generated_text (6).png" id="2_e2xy7"]
+[ext_resource type="Texture2D" uid="uid://bmdrd5jttlkc2" path="res://MainMenuAssets/generated_text (8).png" id="3_fimr5"]
+[ext_resource type="Texture2D" uid="uid://bt50i8cr5grp2" path="res://MainMenuAssets/bulb.png" id="3_u7cqb"]
+[ext_resource type="Script" uid="uid://ca5l1tt8g6t01" path="res://point_light_2d.gd" id="4_afec1"]
+[ext_resource type="Texture2D" uid="uid://b4jvw7hsfvt5x" path="res://MainMenuAssets/generated_text (5).png" id="4_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://c0fntfhmsjgxl" path="res://MainMenuAssets/generated_text (10).png" id="5_afec1"]
+[ext_resource type="Texture2D" uid="uid://dpnda7yqvbl6f" path="res://MainMenuAssets/generated_text (7).png" id="6_31qfy"]
+[ext_resource type="Texture2D" uid="uid://6l14vailo7bk" path="res://MainMenuAssets/generated_text (9).png" id="7_qie43"]
+[ext_resource type="AudioStream" uid="uid://th1y3h3ymhiq" path="res://MainMenuAssets/Shadowman's Waltz [yeAfFkqtbro].mp3" id="8_fimr5"]
+
+[sub_resource type="Gradient" id="Gradient_u7cqb"]
+offsets = PackedFloat32Array(0, 0.07451923, 0.31490386, 0.39182693)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abfxv"]
+gradient = SubResource("Gradient_u7cqb")
+fill = 3
+fill_from = Vector2(0.46354166, 0.38368055)
+fill_to = Vector2(0.8802083, 0.5225694)
+
+[node name="Node2D" type="Node2D" unique_id=522617872]
+script = ExtResource("1_fimr5")
+
+[node name="LightFlicker" type="Sprite2D" parent="." unique_id=610357195]
+position = Vector2(579.25, 322.00003)
+scale = Vector2(3.6109376, 3.566667)
+texture = ExtResource("1_e2xy7")
+
+[node name="Bulb" type="Sprite2D" parent="." unique_id=859042549]
+position = Vector2(578, 329)
+scale = Vector2(3.6062496, 3.611111)
+texture = ExtResource("3_u7cqb")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=257711441]
+position = Vector2(477, 163)
+scale = Vector2(22.824217, 15.085939)
+color = Color(0.977289, 0.97582585, 0.9983875, 1)
+texture = SubResource("GradientTexture2D_abfxv")
+script = ExtResource("4_afec1")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1894179798]
+color = Color(0.5386024, 0.5386024, 0.53860235, 1)
+blend_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=268765658]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="TextureButton" parent="Control" unique_id=788854573]
+layout_mode = 0
+offset_left = 408.00003
+offset_top = 172.0
+offset_right = 1316.0
+offset_bottom = 516.0
+scale = Vector2(0.35313943, 0.3256994)
+texture_normal = ExtResource("2_e2xy7")
+texture_pressed = ExtResource("3_fimr5")
+
+[node name="New Game" type="TextureButton" parent="Control" unique_id=1595215993]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 318.0
+offset_right = 2351.0
+offset_bottom = 727.0
+scale = Vector2(0.19729781, 0.21697606)
+texture_normal = ExtResource("4_u7cqb")
+texture_pressed = ExtResource("5_afec1")
+
+[node name="Quit" type="TextureButton" parent="Control" unique_id=136807739]
+layout_mode = 0
+offset_left = 499.00003
+offset_top = 420.0
+offset_right = 1346.0
+offset_bottom = 769.0
+scale = Vector2(0.21543963, 0.20679161)
+texture_normal = ExtResource("6_31qfy")
+texture_pressed = ExtResource("7_qie43")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=655287333]
+stream = ExtResource("8_fimr5")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
